@@ -1,0 +1,17 @@
+defaultEntryPoints = ["http", "https", "web"]
+[entryPoints]
+  [entryPoints.web]
+  address = ":80"
+    #[entryPoints.http.redirect]
+    #entryPoint = "https"
+  [entryPoints.http]
+  address = ":80"
+    #[entryPoints.http.redirect]
+    #entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
+      [[entryPoints.https.tls.certificates]]
+      certFile = "/configuration/certs/yourdomain.com.crt"
+      keyFile = "/configuration/certs/yourdomain.com.key"
+
